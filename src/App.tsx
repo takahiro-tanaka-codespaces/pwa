@@ -1,7 +1,6 @@
 import React from 'react';
 import axios from 'axios';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
-import logo from './logo.svg';
 import './App.css';
 
 const queryClient = new QueryClient();
@@ -9,6 +8,7 @@ const queryClient = new QueryClient();
 function App() {
   return (
     <div className="App">
+      <h1>PWAアプリ</h1>
       <QueryClientProvider client={queryClient}>
         <Authorized  unauthorized={<Unauthorized />}>
           <UserInfo />
@@ -28,7 +28,8 @@ const authParams = {
   responseType: "code",
   approvalPrompt: "force",
   accessType: "offline",
-  redirectUri: "https://localhost:3000/auth_code",
+  // redirectUri: "https://localhost:3000/auth_code",
+  redirectUri: "https://takahiro-tanaka-codespaces.github.io/pwa/auth_code",
   grantType: "authorization_code",
 } as const;
 
@@ -179,7 +180,7 @@ function Authorized({
 function Unauthorized(): React.ReactElement {
   return (
     <div>
-      <div>ログインしていません。1</div>
+      <div>ログインしていません。</div>
       <button onClick={() => requestCodeFlow()}>ログイン</button>
     </div>
   );

@@ -28,8 +28,8 @@ const authParams = {
   responseType: "code",
   approvalPrompt: "force",
   accessType: "offline",
-  // redirectUri: "https://localhost:3000/auth_code",
-  redirectUri: "https://takahiro-tanaka-codespaces.github.io/pwa/auth_code",
+  redirectUri: "https://localhost:3000/auth_code",
+  // redirectUri: "https://takahiro-tanaka-codespaces.github.io/pwa/auth_code",
   grantType: "authorization_code",
 } as const;
 
@@ -147,7 +147,7 @@ function Authorized({
   React.useEffect(() => {
     // Googleのログイン画面からアプリにリダイレクトした時の処理
     // if (window.location.pathname === "/auth_code") {
-    if (window.location.href === authParams.redirectUri) {
+    if (window.location.href.startsWith(authParams.redirectUri)) {
 	  // codeの取得
       const code = getCode();
       if (code != null) {

@@ -145,7 +145,7 @@ function Authorized({
   
   React.useEffect(() => {
     // Googleのログイン画面からアプリにリダイレクトした時の処理
-    if (window.location.pathname === "/auth-code") {
+    if (window.location.pathname === "/auth_code") {
 	  // codeの取得
       const code = getCode();
       if (code != null) {
@@ -218,13 +218,13 @@ function UserInfo(): React.ReactElement {
 function SignOut(): React.ReactElement {
   const { authInfo } = React.useContext(AuthorizedContext);
   return (
-    <div
+    <button
       onClick={() => {
         signOut(authInfo);
       }}
     >
       Sign Out
-    </div>
+    </button>
   );
 }
 

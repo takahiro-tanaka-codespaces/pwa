@@ -146,7 +146,8 @@ function Authorized({
   
   React.useEffect(() => {
     // Googleのログイン画面からアプリにリダイレクトした時の処理
-    if (window.location.pathname === "/auth_code") {
+    // if (window.location.pathname === "/auth_code") {
+    if (window.location.pathname === authParams.redirectUri) {
 	  // codeの取得
       const code = getCode();
       if (code != null) {
